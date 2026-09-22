@@ -1,1 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        PragyanAI PDF Studio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================
+     SIDEBAR
+======================================= -->
+
+<aside class="sidebar">
+
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            P
+        </div>
+
+
+        <div>
+
+            <h2>
+                PragyanAI
+            </h2>
+
+            <span>
+                PDF Studio
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a
+            href="#"
+            class="nav-item active"
+        >
+
+            <span>
+                📄
+            </span>
+
+            PDF Merger
+
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item"
+        >
+
+            <span>
+                🖼️
+            </span>
+
+            Image Merger
+
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item"
+        >
+
+            <span>
+                ⚡
+            </span>
+
+            Quick Tools
+
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div>
+            Version 2.0
+        </div>
+
+        <div>
+            Made with ❤️ by PragyanAI
+        </div>
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- ======================================
+     MAIN
+======================================= -->
+
+<main class="main">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+
+        <div>
+
+            <div class="breadcrumb">
+
+                Workspace / PDF Merger
+
+            </div>
+
+
+            <h1>
+                PDF Merger
+            </h1>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <span class="status-dot"></span>
+
+            <span>
+                System Online
+            </span>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ==================================
+         CONTENT
+    =================================== -->
+
+    <section class="content">
+
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+
+            <span class="badge">
+
+                ✨ NEW VERSION
+
+            </span>
+
+
+            <h2>
+
+                Merge your files,
+
+                <br>
+
+                <span>
+                    beautifully.
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Combine PDF and image files
+                into one professional PDF
+                in seconds.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- ==================================
+             SUCCESS MESSAGE
+        =================================== -->
+
+        <div
+            id="successMessage"
+            class="success-message"
+        >
+
+            <span>
+                ✓
+            </span>
+
+            <span id="successText">
+                File added successfully
+            </span>
+
+        </div>
+
+
+
+        <!-- ==================================
+             MERGER CARD
+        =================================== -->
+
+        <div class="card">
+
+
+            <div class="card-title">
+
+
+                <div>
+
+                    <h3>
+                        Upload Files
+                    </h3>
+
+
+                    <p>
+                        PDF, JPG, JPEG and PNG supported
+                    </p>
+
+                </div>
+
+
+                <div class="file-count">
+
+                    <span id="fileCount">
+                        0
+                    </span>
+
+                    Files
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DROP ZONE -->
+
+            <div
+                class="drop-zone"
+                id="dropZone"
+            >
+
+
+                <div class="upload-icon">
+
+                    ↑
+
+                </div>
+
+
+                <h3>
+
+                    Drag & Drop your files here
+
+                </h3>
+
+
+                <p>
+
+                    or click the button below
+
+                </p>
+
+
+                <button
+                    class="primary-btn"
+                    id="browseBtn"
+                >
+
+                    Choose Files
+
+                </button>
+
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    multiple
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    hidden
+                >
+
+
+                <small>
+
+                    Supported:
+                    PDF · JPG · JPEG · PNG
+
+                </small>
+
+
+            </div>
+
+
+
+            <!-- ==================================
+                 FILE LIST
+            =================================== -->
+
+            <div
+                id="fileList"
+                class="file-list"
+            ></div>
+
+
+
+            <!-- ==================================
+                 MERGED FILE AREA
+            =================================== -->
+
+            <div
+                id="mergedFileArea"
+                class="merged-file-area"
+            >
+
+
+                <div class="merged-info">
+
+
+                    <div class="merged-icon">
+
+                        📄
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Merged PDF Ready
+                        </h3>
+
+
+                        <p>
+                            Your PDF has been successfully created.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="merged-actions">
+
+
+                    <button
+                        class="view-merged-btn"
+                        id="viewMergedBtn"
+                    >
+
+                        👁 View Merged File
+
+                    </button>
+
+
+                    <button
+                        class="download-btn"
+                        id="downloadBtn"
+                    >
+
+                        ↓ Download
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ACTION BUTTONS
+            =================================== -->
+
+            <div class="actions">
+
+
+                <button
+                    class="secondary-btn"
+                    id="clearBtn"
+                >
+
+                    Clear All
+
+                </button>
+
+
+                <button
+                    class="merge-btn"
+                    id="mergeBtn"
+                    disabled
+                >
+
+                    <span>
+                        Merge Files
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================
+             INFO CARDS
+        =================================== -->
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+
+                <div class="info-icon">
+                    🔒
+                </div>
+
+
+                <h3>
+                    Private
+                </h3>
+
+
+                <p>
+
+                    Files are processed only
+                    for creating your merged PDF.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="info-card">
+
+
+                <div class="info-icon">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    Fast
+                </h3>
+
+
+                <p>
+
+                    Merge multiple documents
+                    quickly with one click.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="info-card">
+
+
+                <div class="info-icon">
+                    📄
+                </div>
+
+
+                <h3>
+                    Multiple Formats
+                </h3>
+
+
+                <p>
+
+                    Combine PDF and image files
+                    into one PDF.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 PragyanAI · PDF Studio
+
+    </footer>
+
+
+</main>
+
+
+<!-- ======================================
+     JAVASCRIPT
+======================================= -->
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
