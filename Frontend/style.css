@@ -1,11 +1,11 @@
+/* ======================================
+   GLOBAL
+====================================== */
+
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
 
 
@@ -37,7 +37,6 @@ body {
     position: fixed;
 
     left: 0;
-
     top: 0;
 
     width: 250px;
@@ -75,7 +74,6 @@ body {
 .brand-logo {
 
     width: 43px;
-
     height: 43px;
 
     border-radius: 12px;
@@ -115,6 +113,10 @@ body {
 
 }
 
+
+/* ======================================
+   NAVIGATION
+====================================== */
 
 nav {
 
@@ -316,9 +318,12 @@ nav {
 
     padding: 6px 10px;
 
-    background: rgba(255,255,255,0.1);
+    background:
+        rgba(255, 255, 255, 0.1);
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
 
     border-radius: 20px;
 
@@ -409,12 +414,8 @@ nav {
     padding: 28px;
 
     box-shadow:
-        0 8px 30px rgba(
-            15,
-            23,
-            42,
-            0.05
-        );
+        0 8px 30px
+        rgba(15, 23, 42, 0.05);
 
 }
 
@@ -680,12 +681,23 @@ button {
 
     cursor: grab;
 
+    transition: 0.2s;
+
 }
 
 
 .file-item:hover {
 
     border-color: #c7c9ff;
+
+    background: #fdfdff;
+
+}
+
+
+.file-item.dragging {
+
+    opacity: 0.5;
 
 }
 
@@ -707,6 +719,8 @@ button {
     align-items: center;
 
     justify-content: center;
+
+    flex-shrink: 0;
 
 }
 
@@ -742,11 +756,17 @@ button {
 }
 
 
+/* ======================================
+   FILE BUTTONS
+====================================== */
+
 .file-buttons {
 
     display: flex;
 
     gap: 7px;
+
+    flex-shrink: 0;
 
 }
 
@@ -907,6 +927,13 @@ button {
 }
 
 
+.view-merged-btn:hover {
+
+    background: #c7d2fe;
+
+}
+
+
 .download-btn {
 
     background: #166534;
@@ -920,6 +947,13 @@ button {
     font-size: 12px;
 
     font-weight: 600;
+
+}
+
+
+.download-btn:hover {
+
+    background: #14532d;
 
 }
 
@@ -1026,7 +1060,6 @@ footer {
 
 @media (max-width: 800px) {
 
-
     .sidebar {
 
         position: relative;
@@ -1055,6 +1088,13 @@ footer {
     .header {
 
         padding: 0 20px;
+
+    }
+
+
+    .header-right {
+
+        display: none;
 
     }
 
@@ -1109,5 +1149,68 @@ footer {
 
     }
 
+
+    .merged-actions button {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* ======================================
+   SMALL MOBILE
+====================================== */
+
+@media (max-width: 500px) {
+
+    .header {
+
+        height: 70px;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 19px;
+
+    }
+
+
+    .hero {
+
+        padding: 25px;
+
+    }
+
+
+    .card {
+
+        padding: 18px;
+
+    }
+
+
+    .drop-zone {
+
+        padding: 30px 15px;
+
+    }
+
+
+    .actions {
+
+        gap: 10px;
+
+    }
+
+
+    .actions button {
+
+        flex: 1;
+
+    }
 
 }
