@@ -3,7 +3,7 @@
 // ==========================================
 
 // CHANGE THIS AFTER RENDER DEPLOYMENT
-const API_URL = "https://sage-bubblegum-d810a6.netlify.app/#";
+const API_URL = "https://pragyanai-python-project-pdf-merger.onrender.com";
 
 
 // ==========================================
