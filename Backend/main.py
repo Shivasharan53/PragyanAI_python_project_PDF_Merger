@@ -8,6 +8,10 @@ from typing import List
 import os
 
 
+# ==========================================
+# FASTAPI APP
+# ==========================================
+
 app = FastAPI(
     title="PragyanAI PDF Merger",
     description="Modern PDF and Image Merger",
@@ -34,7 +38,6 @@ app.add_middleware(
 
 @app.get("/")
 def home():
-
     return {
         "status": "online",
         "message": "PragyanAI PDF Merger API is running",
@@ -48,7 +51,6 @@ def home():
 
 @app.get("/health")
 def health():
-
     return {
         "status": "healthy"
     }
@@ -63,19 +65,19 @@ async def merge_files(
     files: List[UploadFile] = File(...)
 ):
 
+    # Check files
     if not files:
-
         raise HTTPException(
             status_code=400,
             detail="Please upload at least one file."
         )
 
-
     writer = PdfWriter()
-
 
     try:
 
+        # Process files in the exact order
+        # received from the frontend
         for file in files:
 
             filename = file.filename or "file"
@@ -84,9 +86,13 @@ async def merge_files(
                 filename
             )[1].lower()
 
-
             file_data = await file.read()
 
+            if not file_data:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Empty file: {filename}"
+                )
 
             # ==================================
             # PDF
@@ -98,11 +104,14 @@ async def merge_files(
 
                 reader = PdfReader(pdf_file)
 
+                if len(reader.pages) == 0:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f"PDF has no pages: {filename}"
+                    )
 
                 for page in reader.pages:
-
                     writer.add_page(page)
-
 
             # ==================================
             # IMAGE
@@ -116,35 +125,35 @@ async def merge_files(
 
                 image_file = BytesIO(file_data)
 
-                image = Image.open(image_file)
-
+                try:
+                    image = Image.open(image_file)
+                    image.load()
+                except Exception:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f"Invalid image file: {filename}"
+                    )
 
                 if image.mode != "RGB":
-
                     image = image.convert("RGB")
 
-
                 pdf_buffer = BytesIO()
-
 
                 image.save(
                     pdf_buffer,
                     format="PDF"
                 )
 
-
                 pdf_buffer.seek(0)
 
-
-                reader = PdfReader(
-                    pdf_buffer
-                )
-
+                reader = PdfReader(pdf_buffer)
 
                 for page in reader.pages:
-
                     writer.add_page(page)
 
+            # ==================================
+            # UNSUPPORTED FILE
+            # ==================================
 
             else:
 
@@ -153,6 +162,15 @@ async def merge_files(
                     detail=f"Unsupported file: {filename}"
                 )
 
+        # ==================================
+        # CHECK OUTPUT
+        # ==================================
+
+        if len(writer.pages) == 0:
+            raise HTTPException(
+                status_code=400,
+                detail="No pages were added to the merged PDF."
+            )
 
         # ==================================
         # CREATE OUTPUT PDF
@@ -160,38 +178,28 @@ async def merge_files(
 
         output = BytesIO()
 
-
         writer.write(output)
 
         output.seek(0)
 
-
         return StreamingResponse(
-
             output,
-
             media_type="application/pdf",
-
             headers={
                 "Content-Disposition":
-                'inline; filename="PragyanAI_Merged.pdf"'
+                'attachment; filename="PragyanAI_Merged.pdf"'
             }
-
         )
 
-
     except HTTPException:
-
         raise
-
 
     except Exception as error:
 
         raise HTTPException(
             status_code=500,
-            detail=str(error)
+            detail=f"Merge failed: {str(error)}"
         )
-
 
     finally:
 
