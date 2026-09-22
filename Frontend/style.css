@@ -1,1 +1,1113 @@
+* {
 
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #f5f7fb;
+
+    color: #172033;
+
+    min-height: 100vh;
+
+}
+
+
+/* ======================================
+   SIDEBAR
+====================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    width: 250px;
+
+    height: 100vh;
+
+    background: #111827;
+
+    color: white;
+
+    padding: 26px 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    z-index: 100;
+
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 10px 30px;
+
+}
+
+
+.brand-logo {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+}
+
+
+.brand h2 {
+
+    font-size: 19px;
+
+}
+
+
+.brand span {
+
+    color: #9ca3af;
+
+    font-size: 12px;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.nav-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 13px 14px;
+
+    color: #9ca3af;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+
+}
+
+
+.nav-item:hover {
+
+    background: #202737;
+
+    color: white;
+
+}
+
+
+.nav-item.active {
+
+    background: #292f40;
+
+    color: white;
+
+}
+
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+    color: #6b7280;
+
+    font-size: 12px;
+
+    padding: 10px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ======================================
+   MAIN
+====================================== */
+
+.main {
+
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* ======================================
+   HEADER
+====================================== */
+
+.header {
+
+    height: 82px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+}
+
+
+.breadcrumb {
+
+    color: #8a94a6;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.header h1 {
+
+    font-size: 23px;
+
+}
+
+
+.header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #657084;
+
+    font-size: 13px;
+
+}
+
+
+.status-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+}
+
+
+/* ======================================
+   CONTENT
+====================================== */
+
+.content {
+
+    width: 100%;
+
+    max-width: 1120px;
+
+    margin: auto;
+
+    padding: 40px 35px;
+
+}
+
+
+/* ======================================
+   HERO
+====================================== */
+
+.hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #252d44
+        );
+
+    border-radius: 22px;
+
+    padding: 38px;
+
+    color: white;
+
+    margin-bottom: 22px;
+
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    background: rgba(255,255,255,0.1);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.hero h2 {
+
+    font-size: 35px;
+
+    line-height: 1.15;
+
+    margin-bottom: 12px;
+
+}
+
+
+.hero h2 span {
+
+    color: #a78bfa;
+
+}
+
+
+.hero p {
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+
+}
+
+
+/* ======================================
+   SUCCESS MESSAGE
+====================================== */
+
+.success-message {
+
+    display: none;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #ecfdf5;
+
+    border: 1px solid #bbf7d0;
+
+    color: #15803d;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    margin-bottom: 18px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.success-message.show {
+
+    display: flex;
+
+}
+
+
+/* ======================================
+   CARD
+====================================== */
+
+.card {
+
+    background: white;
+
+    border: 1px solid #e6e9ef;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 8px 30px rgba(
+            15,
+            23,
+            42,
+            0.05
+        );
+
+}
+
+
+.card-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+
+}
+
+
+.card-title h3 {
+
+    font-size: 18px;
+
+}
+
+
+.card-title p {
+
+    color: #8a94a6;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+}
+
+
+.file-count {
+
+    background: #f1f3f9;
+
+    color: #6366f1;
+
+    padding: 8px 12px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+}
+
+
+/* ======================================
+   DROP ZONE
+====================================== */
+
+.drop-zone {
+
+    border: 2px dashed #d7dce7;
+
+    border-radius: 15px;
+
+    padding: 42px 20px;
+
+    text-align: center;
+
+    transition: 0.2s;
+
+}
+
+
+.drop-zone.dragover {
+
+    border-color: #6366f1;
+
+    background: #f5f3ff;
+
+}
+
+
+.upload-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 15px;
+
+    background: #f0edff;
+
+    color: #6366f1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+}
+
+
+.drop-zone h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.drop-zone p {
+
+    color: #8a94a6;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.drop-zone small {
+
+    display: block;
+
+    color: #a0a8b7;
+
+    margin-top: 15px;
+
+    font-size: 11px;
+
+}
+
+
+/* ======================================
+   BUTTONS
+====================================== */
+
+button {
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    border: none;
+
+}
+
+
+.primary-btn {
+
+    background: #6366f1;
+
+    color: white;
+
+    padding: 12px 21px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+}
+
+
+.primary-btn:hover {
+
+    background: #4f46e5;
+
+}
+
+
+.secondary-btn {
+
+    background: #f1f3f7;
+
+    color: #596274;
+
+    padding: 12px 18px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+}
+
+
+.secondary-btn:hover {
+
+    background: #e5e7eb;
+
+}
+
+
+.merge-btn {
+
+    background: #111827;
+
+    color: white;
+
+    padding: 12px 21px;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    gap: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.merge-btn:hover {
+
+    background: #252d44;
+
+}
+
+
+.merge-btn:disabled {
+
+    opacity: 0.4;
+
+    cursor: not-allowed;
+
+}
+
+
+/* ======================================
+   FILE LIST
+====================================== */
+
+.file-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+.file-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    border: 1px solid #e6e9ef;
+
+    border-radius: 11px;
+
+    background: #fafbfc;
+
+    cursor: grab;
+
+}
+
+
+.file-item:hover {
+
+    border-color: #c7c9ff;
+
+}
+
+
+.file-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 9px;
+
+    background: #ede9fe;
+
+    color: #6366f1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.file-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.file-name {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+
+}
+
+
+.file-size {
+
+    color: #929aaa;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+
+}
+
+
+.file-buttons {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+.view-file {
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    padding: 8px 11px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.view-file:hover {
+
+    background: #e0e7ff;
+
+}
+
+
+.remove-file {
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    padding: 8px 11px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.remove-file:hover {
+
+    background: #fecaca;
+
+}
+
+
+/* ======================================
+   MERGED FILE
+====================================== */
+
+.merged-file-area {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 17px;
+
+    border: 1px solid #bbf7d0;
+
+    background: #f0fdf4;
+
+    border-radius: 12px;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.merged-file-area.show {
+
+    display: flex;
+
+}
+
+
+.merged-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.merged-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 10px;
+
+    background: #dcfce7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.merged-info h3 {
+
+    font-size: 14px;
+
+}
+
+
+.merged-info p {
+
+    color: #6b7280;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+
+}
+
+
+.merged-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.view-merged-btn {
+
+    background: #e0e7ff;
+
+    color: #4338ca;
+
+    padding: 10px 13px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.download-btn {
+
+    background: #166534;
+
+    color: white;
+
+    padding: 10px 13px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* ======================================
+   ACTIONS
+====================================== */
+
+.actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+}
+
+
+/* ======================================
+   INFO CARDS
+====================================== */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.info-card {
+
+    background: white;
+
+    border: 1px solid #e6e9ef;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+}
+
+
+.info-icon {
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.info-card h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.info-card p {
+
+    color: #8992a3;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ======================================
+   FOOTER
+====================================== */
+
+footer {
+
+    text-align: center;
+
+    color: #9aa2b1;
+
+    font-size: 11px;
+
+    padding: 25px;
+
+    margin-top: auto;
+
+}
+
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 800px) {
+
+
+    .sidebar {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+    }
+
+
+    .sidebar-bottom {
+
+        display: none;
+
+    }
+
+
+    .main {
+
+        margin-left: 0;
+
+    }
+
+
+    .header {
+
+        padding: 0 20px;
+
+    }
+
+
+    .content {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .file-item {
+
+        align-items: flex-start;
+
+    }
+
+
+    .file-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .merged-file-area {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .merged-actions {
+
+        flex-direction: column;
+
+    }
+
+
+}
